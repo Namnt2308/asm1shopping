@@ -1,0 +1,26 @@
+{% extends "base.html.twig" %}
+{% form_theme FormOder 'bootstrap_5_layout.html.twig' %}
+{% block body %}
+{% for flash in app.flashes("Success") %}
+    <p class="alert alert-primary">{{ flash }}</p>
+{% endfor %}
+{% for flash in app.flashes("Error") %}
+    <p class="alert alert-danger">{{ flash }}</p>
+{% endfor %}
+    <div class="product">
+       
+        <div class="productImg">
+            <img src="{{ product.image }}" alt="" width="300px", height="500px">
+        </div>
+        <div class="infomation">
+            <h2>Title: {{ product.title }}</h2>
+            <h3>price: <span>{{ product.price }}</span><sup>VND</sup></h3>
+            <h4>quantity: {{ product.quantity }}</h4>
+            <h4>Color: <span>{{ product.color }}</spanh4>
+            <h5>Size: {{ product.size }}</h5>
+
+        </div>
+
+    {{form(FormOder)}}
+    </div>
+{% endblock %}
